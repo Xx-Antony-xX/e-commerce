@@ -5,6 +5,11 @@ const Hero = () => {
     const heroRef = useRef(null)
 
     useEffect(() => {
+        // Immediately add visible class for above-the-fold content
+        if (heroRef.current) {
+            heroRef.current.classList.add('visible')
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
